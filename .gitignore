@@ -17,6 +17,7 @@ gtk-3.0/
 *.bak
 *.swp
 *.lock
+.codex
 
 user-dirs.dirs
 user-dirs.locale
@@ -43,4 +44,3 @@ cachyos/
 # waypaper/
 # networkmanager-dmenu/
 # micro/
-
