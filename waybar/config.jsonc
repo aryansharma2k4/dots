@@ -137,7 +137,7 @@
     "tooltip-format-ethernet": "{ifname} 󰈀",
     "tooltip-format-disconnected": "Disconnected 󰤭",
     "max-length": 50,
-    "on-click": "nm-connection-editor"
+    "on-click": "/home/aryan/.config/ags/toggle-panel.sh wifi"
   },
 
   "bluetooth": {
@@ -147,7 +147,7 @@
     "format-connected": "󰂱",
     "tooltip-format": "{status}",
     "tooltip-format-connected": "{device_alias} ({device_battery_percentage}%)",
-    "on-click": "blueman-manager"
+    "on-click": "/home/aryan/.config/ags/toggle-panel.sh bluetooth"
   },
 
   "pulseaudio": {
