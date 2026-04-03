@@ -1,0 +1,46 @@
+chromium/
+mozilla/
+vivaldi/
+zen/
+heroic/
+
+
+dconf/
+pulse/
+gtk-3.0/
+
+
+.cache/
+*.cache
+*.log
+*.tmp
+*.bak
+*.swp
+*.lock
+
+user-dirs.dirs
+user-dirs.locale
+mimeapps.list
+dolphinrc
+yay/
+go/
+
+pavucontrol.ini
+
+cachyos/
+
+# hypr/
+# waybar/
+# rofi/
+# kitty/
+# nvim/
+# fish/
+# cava/
+# btop/
+# fastfetch/
+# autostart/
+# hyprpaper/
+# waypaper/
+# networkmanager-dmenu/
+# micro/
+

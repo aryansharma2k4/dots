@@ -1,0 +1,44 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/batman_logo.txt",
+        "padding": {
+            "top": 2,
+            "right": 4
+        }
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": "magenta"
+    },
+    "modules": [
+        "title",
+        {
+            "type": "os",
+            "key": "󰣇 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "kernel",
+            "key": "󰌽 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "shell",
+            "key": "󱆃 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "wm",
+            "key": "󱂬 ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "terminal",
+            "key": "󰆍 ",
+            "keyColor": "magenta"
+        },
+        "break",
+        "colors"
+    ]
+}

@@ -1,0 +1,179 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  
+  "modules-left": [
+    "custom/logo",
+    "hyprland/window",
+    "group/media"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/hardware"
+  ],
+
+  "custom/logo": {
+    "format": "󰊠",
+    "on-click": "hyprshot -m region",
+    "tooltip": true,
+    "tooltip-format": "Screenshot Menu"
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "rewrite": {
+      "^$": "cachy", 
+      "": "cachy"
+    },
+    "max-length": 20,
+    "separate-outputs": true
+  },
+
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/prev",
+      "mpris",
+      "custom/next"
+    ]
+  },
+
+  "custom/prev": {
+    "format": "󰒮",
+    "on-click": "playerctl previous",
+    "tooltip": false
+  },
+  
+  "mpris": {
+    "player": "playerctld",
+    "format": "{title}",
+    "format-paused": "{title}",
+    "format-stopped": "No Media",
+    "max-length": 25,
+    "tooltip-format": "{title}\n{artist}",
+    "on-click": "playerctl play-pause",
+    "interval": 1
+  },
+  
+  "custom/next": {
+    "format": "󰒭",
+    "on-click": "playerctl next",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰮯",
+      "urgent": "󰗖",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5,
+      "HDMI-A-1": 3
+    }
+  },
+
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "backlight",
+      "backlight#keyboard",
+      "network",
+      "bluetooth",
+      "temperature",
+      "battery",
+      "clock"
+    ]
+  },
+
+  "clock": {
+    "format": "  {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "  {:%Y-%m-%d}"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+  },
+
+  "backlight#keyboard": {
+    "device": "YOUR_KBD_DEVICE_HERE",
+    "format": "  {percent}%",
+    "on-scroll-up": "brightnessctl -d '*kbd_backlight*' set 5%+",
+    "on-scroll-down": "brightnessctl -d '*kbd_backlight*' set 5%-",
+    "on-click": "YOUR_SLIDER_APP_HERE"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  {ipaddr}/{cidr}",
+    "format-disconnected": "󰤭  Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰤨",
+    "tooltip-format-ethernet": "{ifname} 󰈀",
+    "tooltip-format-disconnected": "Disconnected 󰤭",
+    "max-length": 50,
+    "on-click": "networkmanager_dmenu" 
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "rofi-bluetooth"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂲 Muted",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+  }
+}

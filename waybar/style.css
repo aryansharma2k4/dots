@@ -1,0 +1,144 @@
+@import "mocha.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px; 
+  font-weight: 600; 
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #cdd6f4; 
+}
+
+/* ── Strip Background from Defaults ───────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── 1. The Floating Pills (excluding the window module) ──── */
+#custom-logo,
+#media,
+#workspaces,
+#hardware {
+  background-color: rgba(17, 17, 27, 0.75); 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px; 
+  margin: 6px 4px; 
+  padding: 2px 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+/* ── 2. Logo Styling ──────────────────────────────────────── */
+#custom-logo {
+  color: #cdd6f4; /* Minimal color to match white/dark backgrounds */
+  font-size: 18px;
+  padding: 2px 16px;
+  margin-left: 10px;
+}
+
+/* ── 3. Active Window Pill (Disappears when empty) ────────── */
+#window {
+  background-color: rgba(17, 17, 27, 0.75); 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px; 
+  margin: 6px 4px; 
+  padding: 2px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  color: #cdd6f4;
+}
+
+/* GTK CSS to make the entire pill vanish when no app is focused */
+#window.empty {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── 4. Media Controls ────────────────────────────────────── */
+#mpris {
+  color: #cdd6f4;
+  padding: 0 8px;
+}
+
+#mpris.playing { color: #cdd6f4; }
+#mpris.paused { color: #a6adc8; } 
+#mpris.stopped { color: #6c7086; } 
+
+#custom-prev, #custom-next {
+  color: #a6adc8;
+  padding: 0 6px;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+#custom-prev:hover, #custom-next:hover {
+  color: #cdd6f4;
+}
+
+/* ── 5. Workspaces ────────────────────────────────────────── */
+#workspaces button {
+  padding: 0 6px;
+  margin: 2px 4px;
+  background-color: transparent;
+  color: #a6adc8; 
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: none;
+  font-size: 16px; 
+}
+
+#workspaces button label {
+  font-size: 16px; 
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: #cdd6f4;
+}
+
+#workspaces button.active {
+  background-color: #cdd6f4; 
+  color: #11111b; 
+}
+
+#workspaces button.urgent {
+  background-color: #f38ba8;
+  color: #11111b;
+}
+
+/* ── 6. System Stats Group ────────────────────────────────── */
+#pulseaudio, #backlight, #network, #temperature, #battery, #clock {
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #cdd6f4;
+}
+
+#clock { color: #b4befe; }
+#battery.charging, #battery.plugged { color: #a6e3a1; }
+#temperature { color: #fab387; }
+
+@keyframes blink {
+  to {
+    background-color: transparent;
+    color: #f38ba8;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f38ba8;
+  color: #11111b;
+  border-radius: 100px;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
