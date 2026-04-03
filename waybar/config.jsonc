@@ -3,7 +3,7 @@
   "position": "top",
   "height": 36,
   "spacing": 4,
-  
+
   "modules-left": [
     "custom/logo",
     "hyprland/window",
@@ -85,7 +85,6 @@
     "modules": [
       "pulseaudio",
       "backlight",
-      "backlight#keyboard",
       "network",
       "bluetooth",
       "temperature",
@@ -107,14 +106,6 @@
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "min-length": 6
-  },
-
-  "backlight#keyboard": {
-    "device": "YOUR_KBD_DEVICE_HERE",
-    "format": "  {percent}%",
-    "on-scroll-up": "brightnessctl -d '*kbd_backlight*' set 5%+",
-    "on-scroll-down": "brightnessctl -d '*kbd_backlight*' set 5%-",
-    "on-click": "YOUR_SLIDER_APP_HERE"
   },
 
   "temperature": {
@@ -146,18 +137,17 @@
     "tooltip-format-ethernet": "{ifname} 󰈀",
     "tooltip-format-disconnected": "Disconnected 󰤭",
     "max-length": 50,
-    "on-click": "networkmanager_dmenu" 
+    "on-click": "nm-connection-editor"
   },
 
   "bluetooth": {
-    "format": " {status}",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "rofi-bluetooth"
+    "format-on": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{status}",
+    "tooltip-format-connected": "{device_alias} ({device_battery_percentage}%)",
+    "on-click": "blueman-manager"
   },
 
   "pulseaudio": {
