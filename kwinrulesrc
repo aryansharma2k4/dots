@@ -1,0 +1,13 @@
+[General]
+count=1
+ruleGroupList=MacLikeDolphin
+
+[MacLikeDolphin]
+Description=Mac-like translucency for Dolphin
+opacityactive=92
+opacityactiverule=2
+opacityinactive=88
+opacityinactiverule=2
+wmclass=dolphin
+wmclasscomplete=false
+wmclassmatch=1
