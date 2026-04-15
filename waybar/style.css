@@ -25,7 +25,8 @@ window#waybar {
 #custom-logo,
 #media,
 #workspaces,
-#hardware {
+#hardware,
+#custom-power {
   background-color: rgba(17, 17, 27, 0.75); 
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px; 
@@ -40,6 +41,18 @@ window#waybar {
   font-size: 18px;
   padding: 2px 16px;
   margin-left: 10px;
+}
+
+#custom-power {
+  color: #f38ba8;
+  font-size: 20px;
+  min-width: 24px;
+  padding: 0 16px;
+  margin-right: 10px;
+}
+
+#custom-power:hover {
+  color: #f9a8bc;
 }
 
 /* ── 3. Active Window Pill (Disappears when empty) ────────── */

@@ -13,7 +13,8 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "group/hardware"
+    "group/hardware",
+    "custom/power"
   ],
 
   "custom/logo": {
@@ -91,6 +92,13 @@
       "battery",
       "clock"
     ]
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "/home/aryan/.config/rofi/scripts/power_menu.sh",
+    "tooltip": true,
+    "tooltip-format": "Power Menu"
   },
 
   "clock": {
