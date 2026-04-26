@@ -1,5 +1,5 @@
 export ZSH="/usr/share/oh-my-zsh"
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 plugins=(git fzf extract)
 
