@@ -5,6 +5,9 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BIN_DIR="$HOME/.local/bin"
 BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
+HOME_FILES=(
+  .zshrc
+)
 
 managed=(
   ags
@@ -70,6 +73,24 @@ if [ -d "$REPO_DIR/.local/bin" ]; then
     echo "Linked $dst -> $file"
   done
 fi
+
+for file in "${HOME_FILES[@]}"; do
+  src="$REPO_DIR/$file"
+  dst="$HOME/$file"
+
+  if [ ! -e "$src" ]; then
+    continue
+  fi
+
+  if [ -L "$dst" ]; then
+    rm "$dst"
+  elif [ -e "$dst" ]; then
+    backup_path "$dst"
+  fi
+
+  ln -s "$src" "$dst"
+  echo "Linked $dst -> $src"
+done
 
 if [ $backup_created -eq 1 ]; then
   echo "Backed up replaced files to $BACKUP_DIR"
