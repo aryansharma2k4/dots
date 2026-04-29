@@ -14,6 +14,7 @@
   ],
   "modules-right": [
     "group/hardware",
+    "tray",
     "custom/power"
   ],
 
@@ -86,12 +87,15 @@
     "modules": [
       "pulseaudio",
       "backlight",
-      "network",
-      "bluetooth",
       "temperature",
       "battery",
       "clock"
     ]
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
   },
 
   "custom/power": {
@@ -134,28 +138,6 @@
     "format-alt": "{icon} {time}",
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
     "interval": 5
-  },
-
-  "network": {
-    "format-wifi": "󰤨  {essid}",
-    "format-ethernet": "󰈀  {ipaddr}/{cidr}",
-    "format-disconnected": "󰤭  Disconnected",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰤨",
-    "tooltip-format-ethernet": "{ifname} 󰈀",
-    "tooltip-format-disconnected": "Disconnected 󰤭",
-    "max-length": 50,
-    "on-click": "/home/aryan/.config/ags/toggle-panel.sh wifi"
-  },
-
-  "bluetooth": {
-    "format-on": "",
-    "format-off": "󰂲",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱",
-    "tooltip-format": "{status}",
-    "tooltip-format-connected": "{device_alias} ({device_battery_percentage}%)",
-    "on-click": "/home/aryan/.config/ags/toggle-panel.sh bluetooth"
   },
 
   "pulseaudio": {
