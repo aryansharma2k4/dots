@@ -3,14 +3,14 @@
 set -euo pipefail
 
 lock_icon=""
-suspend_icon="󰒲"
+logout_icon="󰿅"
 reboot_icon=""
 shutdown_icon=""
 
 choice=$(
   printf '%s\n' \
     "$lock_icon" \
-    "$suspend_icon" \
+    "$logout_icon" \
     "$reboot_icon" \
     "$shutdown_icon" \
   | rofi -dmenu -i -p "" -theme-str '
@@ -66,10 +66,8 @@ case "${choice:-}" in
   "$lock_icon")
     hyprlock
     ;;
-  "$suspend_icon")
-    hyprlock &
-    sleep 1
-    systemctl suspend
+  "$logout_icon")
+    hyprctl dispatch exit
     ;;
   "$reboot_icon")
     systemctl reboot
